@@ -1,4 +1,4 @@
-package com.dzinevich.educative.twoPointers;
+package com.dzinevich.educative._02_twoPointers;
 
 /**
  * Given an array of sorted numbers, remove all duplicates from it

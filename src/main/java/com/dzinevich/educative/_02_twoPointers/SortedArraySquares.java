@@ -1,4 +1,4 @@
-package com.dzinevich.educative.twoPointers;
+package com.dzinevich.educative._02_twoPointers;
 
 /**
  * Given a sorted array, create a new array

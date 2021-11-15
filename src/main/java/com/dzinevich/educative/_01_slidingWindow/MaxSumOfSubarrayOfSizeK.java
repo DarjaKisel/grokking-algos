@@ -1,4 +1,4 @@
-package com.dzinevich.educative.slidingWindow;
+package com.dzinevich.educative._01_slidingWindow;
 
 public class MaxSumOfSubarrayOfSizeK {
 
