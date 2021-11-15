@@ -25,6 +25,11 @@ public class LinkedListCycle {
         System.out.println("LinkedList has cycle: " + LinkedListCycle.hasCycle(head));
     }
 
+    /**
+     * The algorithm runs in constant space O(1).
+     * If there's a cycle, the fast pointer will meet the slow pointer in the same loop.
+     * Therefore, the time complexity is O(N) where ‘N’ is the total number of nodes.
+     */
     private static boolean hasCycle(ListNode node) {
         var slow = node;
         var fast = node;
