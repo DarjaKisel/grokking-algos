@@ -1,4 +1,4 @@
-package com.dzinevich.leetcode.depthFirstSearch.fastAndSlowPointers;
+package com.dzinevich.leetcode.fastAndSlowPointers;
 
 import java.util.ArrayList;
 

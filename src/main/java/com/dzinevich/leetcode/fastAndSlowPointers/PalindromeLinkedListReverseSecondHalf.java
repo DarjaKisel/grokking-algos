@@ -1,6 +1,4 @@
-package com.dzinevich.leetcode.depthFirstSearch.fastAndSlowPointers;
-
-import java.util.ArrayList;
+package com.dzinevich.leetcode.fastAndSlowPointers;
 
 /**
  * Given the head of a singly linked list, return true if it is a palindrome.
