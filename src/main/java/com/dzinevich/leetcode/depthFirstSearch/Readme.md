@@ -12,7 +12,7 @@ https://medium.com/basecs/demystifying-depth-first-search-a7c14cccf056
 
 ### DFS - traverse down until a leaf then back to a "trunk" and down again until a leaf
 
-### DFS - stack data structure
+### DFS - stack data structure (stack is a recursion :))
 
 
 
