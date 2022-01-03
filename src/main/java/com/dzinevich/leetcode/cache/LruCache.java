@@ -36,7 +36,7 @@ public class LruCache {
     }
 
     private final int capacity;
-    private final Map<Integer, DoubleLinkedNode> hashMap = new HashMap();
+    private final Map<Integer, DoubleLinkedNode> hashMap = new HashMap<>();
 
     private final DoubleLinkedNode leastRecentlyUsed = new DoubleLinkedNode(0, 0); //LRU is left
     private final DoubleLinkedNode mostRecentlyUsed = new DoubleLinkedNode(0, 0); //MRU is right
@@ -82,7 +82,7 @@ public class LruCache {
     }
 
     public int get(int key) {
-        if (hashMap.get(key) != null) {
+        if (hashMap.containsKey(key)) {
             // every time we get smth, we need to update the most recent
             remove(hashMap.get(key));
             insert(hashMap.get(key));
@@ -94,7 +94,7 @@ public class LruCache {
     }
 
     public void put(int key, int value) {
-        if (hashMap.get(key) != null) {
+        if (hashMap.containsKey(key)) {
             remove(hashMap.get(key));
         }
         DoubleLinkedNode newNode = new DoubleLinkedNode(key, value);
