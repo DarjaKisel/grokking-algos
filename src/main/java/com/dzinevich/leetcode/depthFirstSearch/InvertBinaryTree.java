@@ -1,7 +1,5 @@
 package com.dzinevich.leetcode.depthFirstSearch;
 
-import com.sun.source.tree.Tree;
-
 /**
  * Given the root of a binary tree, invert the tree, and return its root.
  *
@@ -48,7 +46,8 @@ public class InvertBinaryTree {
         var four = new TreeNode(4, two, seven);
 
         printTree(four);
-        TreeNode inverted = invertTree(four);
+//        TreeNode inverted = invertTree(four);
+        TreeNode inverted = new InvertBinaryTree().invert(four);
         System.out.println();
         printTree(inverted);
     }
@@ -59,6 +58,20 @@ public class InvertBinaryTree {
             printTree(treeNode.left);
             printTree(treeNode.right);
         }
+    }
+
+    private TreeNode invert(TreeNode treeNode) {
+        if (treeNode == null) {
+            return null;
+        }
+
+        var left = invert(treeNode.left);
+        var right = invert(treeNode.right);
+
+        treeNode.left = right;
+        treeNode.right = left;
+
+        return treeNode;
     }
 
 }
