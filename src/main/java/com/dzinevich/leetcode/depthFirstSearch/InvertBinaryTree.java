@@ -7,6 +7,26 @@ package com.dzinevich.leetcode.depthFirstSearch;
  * -100 <= Node.val <= 100
  */
 public class InvertBinaryTree {
+    public static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        public TreeNode() {
+        }
+
+        public TreeNode(int val) {
+            this.val = val;
+        }
+
+        public TreeNode(int val,
+                        TreeNode left,
+                        TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
 
     /**
      * complexity is O(n), where n is the number of nodes in the tree.
