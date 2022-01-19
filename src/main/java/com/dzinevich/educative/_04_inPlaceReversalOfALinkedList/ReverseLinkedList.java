@@ -2,6 +2,20 @@ package com.dzinevich.educative._04_inPlaceReversalOfALinkedList;
 
 public class ReverseLinkedList {
 
+    static class ListNode{
+        int value;
+        ListNode next;
+
+        public ListNode(int value) {
+            this.value = value;
+        }
+
+        public ListNode(int value, ListNode next) {
+            this.value = value;
+            this.next = next;
+        }
+    }
+
     /**
      * Think of it as we reverse arrows!
      * We literally just reverse an arrow node by node.
@@ -33,18 +47,58 @@ public class ReverseLinkedList {
         System.out.println();
     }
 
-    public static void main(String[] args) {
-        ListNode head = new ListNode(2);
-        head.next = new ListNode(4);
-        head.next.next = new ListNode(6);
-        head.next.next.next = new ListNode(8);
-        head.next.next.next.next = new ListNode(10);
+//    public static void main(String[] args) {
+//        ListNode head = new ListNode(2);
+//        head.next = new ListNode(4);
+//        head.next.next = new ListNode(6);
+//        head.next.next.next = new ListNode(8);
+//        head.next.next.next.next = new ListNode(10);
+//
+//        System.out.print("Nodes of the LinkedList are: ");
+//        printNodes(head);
+//        ListNode result = ReverseLinkedList.reverse(head);
+//        System.out.print("Nodes of the reversed LinkedList are: ");
+//        printNodes(result);
+//    }
 
-        System.out.print("Nodes of the LinkedList are: ");
-        printNodes(head);
-        ListNode result = ReverseLinkedList.reverse(head);
-        System.out.print("Nodes of the reversed LinkedList are: ");
-        printNodes(result);
 
+    private static ListNode repeatReversal(ListNode head) {
+
+        ListNode current = head;
+        ListNode prev = null;
+        ListNode next = null;
+
+        while(current != null) { //(1)->2->3
+            next = current.next; //n = 2
+            current.next = prev; //(1)->null
+            prev = current;      //..(1->null)
+            current = next;      //(2) .. (1->null)
+        }
+        //previous is pointing to the shole list now
+        return prev;
     }
+
+
+    public static void main(String[] args) {
+        ListNode head = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));
+
+        ListNode n = head;
+        while (n != null) {
+            System.out.print(n.value + ", ");
+            n = n.next;
+        }
+
+        ListNode reversal = repeatReversal(head);
+
+        System.out.println();
+
+        n = reversal;
+        while (n != null) {
+            System.out.print(n.value + ", ");
+            n = n.next;
+        }
+    }
+
+
+
 }

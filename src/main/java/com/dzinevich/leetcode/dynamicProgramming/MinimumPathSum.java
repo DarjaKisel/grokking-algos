@@ -46,12 +46,12 @@ public class MinimumPathSum {
         int j = cols-1;
 
         while (i > 0 && j > 0) {
-            if (grid[i-1][j] > grid[i][j-1]) { //[i-1][j] - is up
+            if (grid[i-1][j] > grid[i][j-1]) { //[i-1][j] - is up, [i][j-1] - is left
                 result.append(grid[i - 1][j]);
-                i=i-1;
+                i=i-1; // move up
             } else {
-                result.append(grid[i][j-1]); //[i][j-1] - is left
-                j=j-1;
+                result.append(grid[i][j-1]);
+                j=j-1; // move left
             }
         }
 

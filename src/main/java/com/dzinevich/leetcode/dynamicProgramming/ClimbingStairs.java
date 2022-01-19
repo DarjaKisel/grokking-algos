@@ -58,7 +58,7 @@ public class ClimbingStairs {
         int two = 1;
 
         for (int i = 0; i < steps - 1; i++) {
-            int temp = one; // store the current on before moving
+            int temp = one; // store the current one before moving
             one = one + two; // move one left and sum up last two elements
             two = temp; // two is moved to the place where was one
         }

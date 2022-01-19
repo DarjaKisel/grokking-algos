@@ -82,7 +82,7 @@ public class LongestSubstringWithoutRepeatingChars {
                 left++;
             }
 
-            // one no duplicates - expand the window from the right
+            // once there are no more duplicates - expand the window to the right
             uniqueChars.add(s.charAt(right));
 
             //maybe that's the biggest result so far

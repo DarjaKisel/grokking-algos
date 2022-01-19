@@ -37,4 +37,29 @@ public class BestTimeToBuyAndSellStock {
         int maxProfit = maxProfit(new int[]{7, 1, 5, 3, 6, 4});
         System.out.println(maxProfit);
     }
+
+    //public static int maxProfit(int[] arr) {
+    //        int left = 0;
+    //        int right = left +1;
+    //
+    //        int maxProfit = 0;
+    //
+    //        while(right < arr.length) {
+    //
+    //
+    //            //is profitable ? - do something
+    //            if(arr[left] < arr[right]) {
+    //                int profit = arr[right] - arr[left];
+    //                maxProfit = Math.max(maxProfit, profit);
+    //            } else {
+    //                //if arr[right] is less than arr[left] - it's now the new smallest!
+    //                left = right;
+    //            }
+    //
+    //            right++;
+    //        }
+    //
+    //        return maxProfit;
+    //
+    //    }
 }
