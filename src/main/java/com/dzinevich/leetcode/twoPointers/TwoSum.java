@@ -10,6 +10,8 @@ import java.util.Map;
  */
 public class TwoSum {
 
+    // complexity O(n0
+    // memory O(n)
     public static int[] findTwoIndexesThatSumUpToTheGivenTarget(int[]arr, int target) {
         Map<Integer, Integer> hashMap = new HashMap<>();
 
