@@ -1,6 +1,4 @@
-package com.dzinevich.leetcode.depthFirstSearch;
-
-import com.sun.source.tree.Tree;
+package com.dzinevich.leetcode.tree.depthFirstSearch;
 
 /**
  * Given the root of a binary tree, determine if it is a valid binary search tree (BST).

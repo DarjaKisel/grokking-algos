@@ -1,4 +1,4 @@
-package com.dzinevich.leetcode.depthFirstSearch;
+package com.dzinevich.leetcode.tree.depthFirstSearch;
 
 /**
  * Given the root of a binary tree and an integer targetSum,

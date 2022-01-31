@@ -1,4 +1,4 @@
-package com.dzinevich.leetcode.breadthFirstSearch;
+package com.dzinevich.leetcode.tree.breadthFirstSearch;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

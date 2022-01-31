@@ -1,4 +1,4 @@
-package com.dzinevich.leetcode.depthFirstSearch;
+package com.dzinevich.leetcode.tree.depthFirstSearch;
 
 public class SameTree {
 
