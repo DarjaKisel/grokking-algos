@@ -24,13 +24,10 @@ public class MaxRepeatingSubstring {
         Map<Character, Integer> map = new HashMap<>(26);
         int count = 0;
 
-        for (char c : str.toCharArray()) {
-            if (map.containsKey(c)) {
-                map.put(c, map.get(c) + 1);
-            } else {
-                map.put(c, 1);
-            }
-            count = Math.max(count, map.get(c));
+        for(Character c : str.toCharArray()) {
+            int times = 1 + map.getOrDefault(c, 0);
+            map.put(c, times);
+            count = Math.max(map.get(c), count);
         }
 
         return count;
