@@ -1,6 +1,7 @@
 package com.dzinevich.leetcode.arrays;
 
 import java.util.Arrays;
+import java.util.PriorityQueue;
 
 public class KthElementInArray {
 
@@ -11,10 +12,6 @@ public class KthElementInArray {
      * Note that it is the kth largest element in the sorted order, not the kth distinct element.
      */
     public int findKthLargest(int[] nums, int k) {
-        // use heap
-        // 1. heapify the array - O(n) time
-        // 2. pop k times - O(logn) time
-        // complexity (n + k*logn) - if k relatively small - heap is better than sorting
 
         // we know that kth largest is kth element from the end
         int kthIdx = nums.length - k;
@@ -90,6 +87,8 @@ public class KthElementInArray {
         }
     }
 
+    //------------------------sorting---------------------------------------
+    //
     /**
      * Arrays.sort(nums);
      *  Complexity = n*logn
@@ -98,20 +97,13 @@ public class KthElementInArray {
         Arrays.sort(nums);
         return nums[nums.length - k];
     }
+    //
+    //-----------------------------------------------------------------------
+    //
 
-    public static void main(String[] args) {
-        int nums[] = new int[]{3,2,1,5,6,4};
-        int nums2[] = new int[]{3,2,3,1,2,4,5,5,6};
-        int nums3[] = new int[]{3,2,6,7,9,1,2,4,8,5};
-//        System.out.println(new KthElementInArray().useSorting_findKthLargest(nums, 2) + " : expected 5");
-//        System.out.println(new KthElementInArray().findKthLargest(nums, 2));
-//        System.out.println(new KthElementInArray().findKthLargest(nums2, 4));
-//        System.out.println(new KthElementInArray().findKthLargest(nums3, 4));
-
-        System.out.println(new KthElementInArray().findKthLargestElement(nums3, 4));
-    }
-
-
+    //
+    //----------------------quick select repeat-------------------------------------
+    //
     public int findKthLargestElement(int[] nums, int kth) {
         int kthIdx = nums.length - kth;
         return quickSelectRepeat(nums, 0, nums.length-1, kthIdx);
@@ -141,12 +133,49 @@ public class KthElementInArray {
         if (curr < kth) { // didnt reach yet
             return quickSelectRepeat(nums, curr+1, right, kth); // take the right portion from curr+1 to right
         } else if (curr > kth) {
-            return quickSelectRepeat(nums, curr - 1, right, kth); // take the left portion from left to curr-1
+            return quickSelectRepeat(nums, left, curr - 1, kth); // take the left portion from left to curr-1
         } else {
             return nums[curr];
         }
 
     }
 
+
+    //-----------------------------heap---------------------------------------
+    /**
+     * ! -Use PriorityQueue- !
+     *  1. heapify the array - O(n) time
+     *  2. pop k times - O(logn) time
+     *  complexity (n + k*logn) - if k relatively small - heap is better than sorting
+     */
+    public int findKthLargestElement_heap(int[] nums, int k) {
+        PriorityQueue<Integer> heap = new PriorityQueue<>();
+
+        for (int n : nums) {
+            heap.add(n);
+
+            if (heap.size() > k) {
+                heap.poll();
+            }
+        }
+
+        return heap.poll();
+
+    }
+
+
+    public static void main(String[] args) {
+        int nums[] = new int[]{3,2,1,5,6,4};
+        int nums2[] = new int[]{3,2,3,1,2,4,5,5,6};
+        int nums3[] = new int[]{3,2,6,7,9,1,2,4,8,5};
+        System.out.println(new KthElementInArray().useSorting_findKthLargest(nums, 2) + " : expected 5");
+        System.out.println(new KthElementInArray().findKthLargest(nums, 2) + " : expected 5");
+        System.out.println(new KthElementInArray().findKthLargest(nums2, 4) + " : expected 4");
+        System.out.println(new KthElementInArray().findKthLargest(nums3, 4) + " : expected 6");
+
+        System.out.println(new KthElementInArray().findKthLargestElement(nums3, 4) + " : expected 6");
+
+        System.out.println(new KthElementInArray().findKthLargestElement_heap(nums3, 4) + " : expected 6");
+    }
 
 }
