@@ -33,7 +33,8 @@ public class TopKFrequentElements {
 
         // max size of the map is == to the size of input array
         // as worst case is all elements are unique and there will be nums.length records
-        // as best case is all elements are the there will be 1 record
+        // as best case is all elements are the same and there will be 1 record
+        //
         // frequency:
         // key - times
         // val - numbers that occur key times
@@ -48,6 +49,7 @@ public class TopKFrequentElements {
         int[] result = new int[k];
         int c = 0;
 
+        //start from the biggest possible value
         for (int i = nums.length; i >=0; i--) {
             if (freq.containsKey(i)) {
                 for (int n : freq.get(i)) {

@@ -54,13 +54,13 @@ public class LongestSubstringWithoutRepeatingChars {
         return result;
     }
 
-    public static void main(String[] args) {
-        String s = "abcabcbb";
-        System.out.println(lengthOfLongestSubstringDistinct(s) + " -> should be 3");
-
-        String s1 = "pwwkew";
-        System.out.println(lengthOfLongestSubstringDistinct(s1) + " -> should be 3");
-    }
+//    public static void main(String[] args) {
+//        String s = "abcabcbb";
+//        System.out.println(lengthOfLongestSubstringDistinct(s) + " -> should be 3");
+//
+//        String s1 = "pwwkew";
+//        System.out.println(lengthOfLongestSubstringDistinct(s1) + " -> should be 3");
+//    }
 
 
     //repeat
@@ -90,5 +90,80 @@ public class LongestSubstringWithoutRepeatingChars {
         }
 
         return result;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /**
+     *
+     * -- TIME = O(n)
+     * -- MEM  = O(n)
+     */
+    public int repeat_longestSubstringWithoutRepeatingChars(String str) {
+
+        int maxResult = 0;
+
+        Set<Character> unique = new HashSet<>();
+
+        int left = 0;
+
+        // right pointer is self-increasing in the for loop
+        for (int right = left; right < str.length(); right++) {
+
+            while (unique.contains(str.charAt(right))) {
+                unique.remove(str.charAt(left));
+                left++;
+            }
+            unique.add(str.charAt(right));
+
+            maxResult = Math.max(maxResult, unique.size());
+        }
+
+        return maxResult;
+
+    }
+
+    public static void main(String[] args) {
+        var T = new LongestSubstringWithoutRepeatingChars();
+
+        String s = "abcabcbb";
+        System.out.println(T.repeat_longestSubstringWithoutRepeatingChars(s) + " -> should be 3");
+
+        String s1 = "pwwkew";
+        System.out.println(T.repeat_longestSubstringWithoutRepeatingChars(s1) + " -> should be 3");
+
+        String s2 = "aab";
+        System.out.println(T.repeat_longestSubstringWithoutRepeatingChars(s2) + " -> should be 2");
+
+        String s3 = "au";
+        System.out.println(T.repeat_longestSubstringWithoutRepeatingChars(s3) + " -> should be 2");
     }
 }
