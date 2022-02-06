@@ -7,21 +7,13 @@ package com.dzinevich.leetcode.binary;
  */
 public class Number1Bits {
 
-    // 1011 %2 -- mod it by 2
-    // shift bit to the right ->
-    // 101 %2 -- mod it by 2
-    // shift bit to the right ->
-    // 10 %2 -- mod it by 2
-    // shift bit to the right ->
-    // 1 %2 -- mod it by 2
-    // shift bit to the right ->
-    // 0 %2 -- mod it by 2
+    //num & 1 :  0 & 1 == 0, 1 & 1 == 1
     public int hammingWeight(int num) {
         int result = 0;
 
-        while (num > 0) {
-            result += num % 2;
-            num = num >>> 1;
+        while (num != 0) {
+            result += (num & 1);
+            num = num>>>1;
         }
         return result;
     }
