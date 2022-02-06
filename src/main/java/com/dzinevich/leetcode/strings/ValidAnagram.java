@@ -27,11 +27,16 @@ public class ValidAnagram {
     }
 
     public static void main(String[] args) {
-        System.out.println(new ValidAnagram().isAnagram("anagram", "nagaram") + ": should be true");
-        System.out.println(new ValidAnagram().isAnagram("rat", "cat") + ": should be false");
+        ValidAnagram va = new ValidAnagram();
 
-        System.out.println(new ValidAnagram().isValidAnagram("anagram", "nagaram") + ": should be true");
-        System.out.println(new ValidAnagram().isValidAnagram("rat", "cat") + ": should be false");
+        System.out.println(va.isAnagram("anagram", "nagaram") + ": should be true");
+        System.out.println(va.isAnagram("rat", "cat") + ": should be false");
+
+        System.out.println(va.isValidAnagram("anagram", "nagaram") + ": should be true");
+        System.out.println(va.isValidAnagram("rat", "cat") + ": should be false");
+
+        System.out.println(va.isValidAnagram_compareArrays("anagram", "nagaram") + ": should be true");
+        System.out.println(va.isValidAnagram_compareArrays("rat", "cat") + ": should be false");
     }
 
     private boolean isValidAnagram(String s, String t) {
@@ -48,5 +53,17 @@ public class ValidAnagram {
         }
 
         return countS.equals(countT);
+    }
+
+    private boolean isValidAnagram_compareArrays(String s, String t) {
+
+        char[] sArr = s.toCharArray();
+        char[] tArr = t.toCharArray();
+
+        Arrays.sort(sArr);
+        Arrays.sort(tArr);
+
+        return Arrays.equals(sArr, tArr);
+
     }
 }
