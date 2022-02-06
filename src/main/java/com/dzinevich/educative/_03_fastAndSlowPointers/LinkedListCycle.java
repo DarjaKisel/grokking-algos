@@ -34,7 +34,7 @@ public class LinkedListCycle {
         var slow = node;
         var fast = node;
 
-        while (slow != null && fast != null) {
+        while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
 
