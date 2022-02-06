@@ -27,7 +27,34 @@ public class ValidPalindrome {
     public static void main(String[] args) {
         ValidPalindrome vp = new ValidPalindrome();
 
-        System.out.println(vp.validPalindrome("A man, a plan, a canal: Panama") + " : expected: true");
-        System.out.println(vp.validPalindrome("race a car") + " : expected: false");
+//        System.out.println(vp.validPalindrome("A man, a plan, a canal: Panama") + " : expected: true");
+//        System.out.println(vp.validPalindrome("race a car") + " : expected: false");
+
+        System.out.println(vp.var2_validPalindrome("A man, a plan, a canal: Panama") + " : expected: true");
+        System.out.println(vp.var2_validPalindrome("race a car") + " : expected: false");
+    }
+
+    // O(1) memory
+    // O(n) time
+    public boolean var2_validPalindrome(String s) {
+
+        int left = 0;
+        int right = s.length()-1;
+
+        while (left <= right) {
+
+            if (!Character.isLetterOrDigit(s.charAt(left))) {
+                left++;
+            } else if (!Character.isLetterOrDigit(s.charAt(right))) {
+                right--;
+            } else if (!String.valueOf(s.charAt(left)).equalsIgnoreCase(String.valueOf(s.charAt(right)))) {
+                return false;
+            } else {
+                left++;
+                right--;
+            }
+        }
+
+        return true;
     }
 }
