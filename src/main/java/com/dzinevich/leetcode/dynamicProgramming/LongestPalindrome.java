@@ -59,21 +59,6 @@ public class LongestPalindrome {
         return result;
     }
 
-
-    public static void main(String[] args) {
-        System.out.println(repeatLongestPalindrome("babad"));
-        System.out.println("Should be 'bab'\n\n");
-        System.out.println(repeatLongestPalindrome("cbbd"));
-        System.out.println("Should be 'bb'\n\n");
-        System.out.println(repeatLongestPalindrome("a"));
-        System.out.println("Should be 'a'\n\n");
-        System.out.println(repeatLongestPalindrome("ac"));
-        System.out.println("Should be 'a'\n\n");
-    }
-
-
-
-
     private static String repeatLongestPalindrome(String s) {
         String result = "";
         int maxLength = 0;
@@ -111,5 +96,55 @@ public class LongestPalindrome {
         }
 
         return result;
+    }
+
+    public String repeat_longestPalindrome(String s) {
+
+        String result = "";
+        int longest = 0;
+
+        for (int i = 0; i < s.length(); i++) { //we consider i as a center
+            // 1. ODD PALINDROMES
+            int l = i;
+            int r = i;
+            while (l >= 0 && r < s.length() && s.charAt(l) == s.charAt(r)) {
+
+                if (r - l + 1 > longest) {
+                    result = s.substring(l, r+1);
+                    longest = r - l + 1;
+                }
+
+                l--;
+                r++;
+            }
+            // 2. EVEN PALINDROMES
+            l = i;
+            r = i+1;
+            while (l >= 0 && r < s.length() && s.charAt(l) == s.charAt(r)) {
+
+                if (r - l + 1 > longest) {
+                    result = s.substring(l, r+1);
+                    longest = r - l + 1;
+                }
+
+                l--;
+                r++;
+            }
+        }
+
+        return result;
+    }
+
+
+    public static void main(String[] args) {
+        LongestPalindrome L = new LongestPalindrome();
+        System.out.println(L.repeat_longestPalindrome("babad"));
+        System.out.println("Should be 'bab'\n\n");
+        System.out.println(L.repeat_longestPalindrome("cbbd"));
+        System.out.println("Should be 'bb'\n\n");
+        System.out.println(L.repeat_longestPalindrome("a"));
+        System.out.println("Should be 'a'\n\n");
+        System.out.println(L.repeat_longestPalindrome("ac"));
+        System.out.println("Should be 'a'\n\n");
     }
 }
