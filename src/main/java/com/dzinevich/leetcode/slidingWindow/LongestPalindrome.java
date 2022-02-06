@@ -1,4 +1,4 @@
-package com.dzinevich.leetcode.dynamicProgramming;
+package com.dzinevich.leetcode.slidingWindow;
 
 /**
  * Given a string s, return the longest palindromic substring in s.
