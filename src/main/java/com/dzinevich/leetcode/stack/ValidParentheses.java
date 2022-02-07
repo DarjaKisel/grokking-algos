@@ -61,15 +61,6 @@ public class ValidParentheses {
     }
 
 
-    public static void main(String[] args) {
-        System.out.println(isValid("()") + " Should be true");
-        System.out.println(isValid("()[]{}") + " Should be true");
-        System.out.println(isValid("(]") + " Should be false");
-        System.out.println(isValid("([)]") + " Should be false");
-        System.out.println(isValid("{[]}") + " Should be true");
-    }
-
-
     // repeat
     public static boolean repeatIsValid(String s) {
         Stack<Character> stack = new Stack<>();
@@ -92,5 +83,43 @@ public class ValidParentheses {
             }
         }
         return stack.empty();
+    }
+
+
+    public static void main(String[] args) {
+        ValidParentheses vp = new ValidParentheses();
+        System.out.println(vp.validParentheses_repeat("()") + " Should be true");
+        System.out.println(vp.validParentheses_repeat("()[]{}") + " Should be true");
+        System.out.println(vp.validParentheses_repeat("(]") + " Should be false");
+        System.out.println(vp.validParentheses_repeat("([)]") + " Should be false");
+        System.out.println(vp.validParentheses_repeat("{[]}") + " Should be true");
+    }
+
+    public boolean validParentheses_repeat(String s) {
+
+        Stack<Character> stack = new Stack<>();
+
+        Map<Character, Character> closeToOpen = new HashMap<>(3);
+        closeToOpen.put('}', '{');
+        closeToOpen.put(')', '(');
+        closeToOpen.put(']', '[');
+
+        for (int i = 0; i < s.length(); i++) {
+
+            if (!stack.empty() && closeToOpen.containsKey(s.charAt(i))) {
+
+                if (stack.peek() != closeToOpen.get(s.charAt(i))) {
+                    return false;
+
+                } else {
+                    stack.pop();
+                }
+
+            } else {
+                stack.push(s.charAt(i));
+            }
+        }
+
+        return true;
     }
 }
