@@ -1,7 +1,16 @@
 package com.dzinevich.tests;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class ABCD {
     StringBuilder str;
+    Map<Character, Character> combinationsMap = new HashMap<>(){
+        {
+            put('A', 'B');
+            put('C', 'D');
+        };
+    };
 
     public String newSolution(String S) {
         str = new StringBuilder(S);
@@ -10,6 +19,7 @@ public class ABCD {
         return str.toString();
     }
 
+    // i is a pointer to the curr position
     private void findAndRemoveABCD(int i) {
         if (str == null || str.length() < 2 || i >= str.length()) {
             return;
@@ -17,12 +27,16 @@ public class ABCD {
 
         int length = str.length();
 
-        tryRemove(i, 'A', 'B');
-        tryRemove(i, 'B', 'A');
-        tryRemove(i, 'C', 'D');
-        tryRemove(i, 'D', 'C');;
+        combinationsMap.forEach((a, b) -> {
+            tryRemove(i, a, b);
+            tryRemove(i, b, a);
+        });
 
         findAndRemoveABCD(length != str.length() ? i : i+1);
+        // we move pointer only if we don't reduce str.length =? O(n*combinations)
+        // if we didn't find anyth in first 4 chars, we don't have to repeat again
+        // we start from fifth and find all combination nearby,
+        // if the str reduces - we update index i inside tryRemove()
     }
 
     private void tryRemove(int i, char a, char b) {
@@ -81,6 +95,7 @@ public class ABCD {
         int left = 0;
         int right = left +1;
 
+        // O(n^2*combinations)
         while (right < input.length()) {
             char l = input.charAt(left);
             char r = input.charAt(right);
