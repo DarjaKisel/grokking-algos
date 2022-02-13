@@ -1,4 +1,4 @@
-package com.dzinevich.leetcode.tree.depthFirstSearch;
+package com.dzinevich.leetcode.tree;
 
 // O(logn) - we're not visiting all nodes
 public class LowestCommonAncestorOfBinarySearchTree {
