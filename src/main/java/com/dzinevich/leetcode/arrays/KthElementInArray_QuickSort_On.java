@@ -3,7 +3,7 @@ package com.dzinevich.leetcode.arrays;
 import java.util.Arrays;
 import java.util.PriorityQueue;
 
-public class KthElementInArray {
+public class KthElementInArray_QuickSort_On {
 
 
     /**
@@ -168,14 +168,14 @@ public class KthElementInArray {
         int nums[] = new int[]{3,2,1,5,6,4};
         int nums2[] = new int[]{3,2,3,1,2,4,5,5,6};
         int nums3[] = new int[]{3,2,6,7,9,1,2,4,8,5};
-        System.out.println(new KthElementInArray().useSorting_findKthLargest(nums, 2) + " : expected 5");
-        System.out.println(new KthElementInArray().findKthLargest(nums, 2) + " : expected 5");
-        System.out.println(new KthElementInArray().findKthLargest(nums2, 4) + " : expected 4");
-        System.out.println(new KthElementInArray().findKthLargest(nums3, 4) + " : expected 6");
+        System.out.println(new KthElementInArray_QuickSort_On().useSorting_findKthLargest(nums, 2) + " : expected 5");
+        System.out.println(new KthElementInArray_QuickSort_On().findKthLargest(nums, 2) + " : expected 5");
+        System.out.println(new KthElementInArray_QuickSort_On().findKthLargest(nums2, 4) + " : expected 4");
+        System.out.println(new KthElementInArray_QuickSort_On().findKthLargest(nums3, 4) + " : expected 6");
 
-        System.out.println(new KthElementInArray().findKthLargestElement(nums3, 4) + " : expected 6");
+        System.out.println(new KthElementInArray_QuickSort_On().findKthLargestElement(nums3, 4) + " : expected 6");
 
-        System.out.println(new KthElementInArray().findKthLargestElement_heap(nums3, 4) + " : expected 6");
+        System.out.println(new KthElementInArray_QuickSort_On().findKthLargestElement_heap(nums3, 4) + " : expected 6");
     }
 
 }
